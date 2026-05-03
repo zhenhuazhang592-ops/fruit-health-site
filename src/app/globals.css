@@ -1,0 +1,104 @@
+@import "tailwindcss";
+
+/* ─── Design System Tokens ──────────────────────────────────── */
+:root {
+  --color-primary: #2D5A3D;      /* 森林绿 */
+  --color-secondary: #8FBE8A;    /* 浅绿 */
+  --color-accent: #E67E22;       /* 榴莲橙 */
+  --color-background: #FAFAF8;   /* 米白 */
+  --color-surface: #FFFFFF;
+  --color-text: #1A1A1A;
+  --color-text-secondary: #6B7280;
+  --color-border: #E5E7EB;
+  --radius: 12px;
+  --shadow: 0 2px 8px rgba(0,0,0,0.06);
+  --shadow-hover: 0 4px 16px rgba(0,0,0,0.1);
+  --transition: 0.2s ease;
+}
+
+/* ─── Tailwind Theme ────────────────────────────────────────── */
+@theme inline {
+  --color-primary: var(--color-primary);
+  --color-secondary: var(--color-secondary);
+  --color-accent: var(--color-accent);
+  --color-background: var(--color-background);
+  --color-surface: var(--color-surface);
+  --color-text: var(--color-text);
+  --color-text-secondary: var(--color-text-secondary);
+  --color-border: var(--color-border);
+  --radius: var(--radius);
+  --shadow: var(--shadow);
+  --shadow-hover: var(--shadow-hover);
+}
+
+/* ─── Base ──────────────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-text);
+  font-family: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── Typography ────────────────────────────────────────────── */
+h1, h2, h3, .font-display {
+  font-family: 'Playfair Display', 'Noto Serif SC', Georgia, serif;
+}
+
+/* ─── Offcanvas Animation ───────────────────────────────────── */
+@keyframes slideIn {
+  from { transform: translateX(-100%); }
+  to   { transform: translateX(0); }
+}
+
+@keyframes slideOut {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-100%); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+
+.offcanvas-enter {
+  animation: slideIn 300ms ease-out;
+}
+
+.offcanvas-exit {
+  animation: slideOut 300ms ease-out;
+}
+
+.overlay-enter {
+  animation: fadeIn 300ms ease-out;
+}
+
+.overlay-exit {
+  animation: fadeOut 300ms ease-out;
+}
+
+/* ─── Skeleton Pulse ────────────────────────────────────────── */
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    #f0f0f0 25%,
+    #e0e0e0 50%,
+    #f0f0f0 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
